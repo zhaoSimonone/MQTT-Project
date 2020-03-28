@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--使用xmlns:android指定了一个命名空间，才能使用android:id，andorid:layout_width这样的组件-->
+<!--Toolbar是Material Design中的一个重要组件，而Material Design是在Android5以后才有的，所以需要指定app的命令空间，就可以写app:xxx
+这样的语句"-->
+<RelativeLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true">
+    <!--注释-->
+    <!--Toolbar控件过去由V7库提供，但是现在都是由Androidx提供-->
+    <!--ayout_height="?attr/actionBarSize将其设定为actionBar的高度-->
+    <!--background="?attr/colorPrimary"将Toolbar的背景色设置为colorPrimary的颜色，此时，状态栏和Toolbar的颜色相同-->
+    <!--android:theme指定了Toolbar的主题，目的是和style.xml中AppTheme的主题区分开-->
+    <!--app:popupTheme讲弹出的菜单栏设置为淡色主题，popupTheme是在Android5.0以后新增的属性，使用app指定就能兼容android5.0以下的系统-->
+    <!--
+        android:background="?attr/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        这些都是为了让Toolbar更好看，如果去掉是怎么样的效果，也可以看看-->
+    <!-- 由于每个控件对应的属性都特别多，所以如果有不太明白的，也可以百度一下-->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_login"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:singleLine="true"
+            android:textSize="20sp"
+            android:text="登录" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="60dp">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp">
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    style="@style/login_txt2"
+                    android:text="用户名"/>
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/login_edit"
+                    android:id="@+id/login_name"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    style="@style/login_txt2"
+                    android:text="密码" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/login_edit"
+                    android:id="@+id/login_pswd"
+                    android:inputType="textPassword"/>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="120dp"
+                android:orientation="vertical">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    style="@style/login_button"
+                    android:text="快速登录"
+                    android:topLeftRadius="10dip"
+                    android:topRightRadius="10dip"
+                    android:bottomRightRadius="10dip"
+                    android:bottomLeftRadius="10dip"
+                    android:background="@color/colorPrimary"
+                    android:textColor="#fff"
+
+                    android:id="@+id/login_in" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="我没有账号，立即新建"
+                    android:layout_gravity="center"
+                    android:id="@+id/sign_in"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

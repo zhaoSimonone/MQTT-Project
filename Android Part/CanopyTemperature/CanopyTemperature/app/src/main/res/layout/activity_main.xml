@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--xmlns:android：
+指定了一个命名空间，才能使用android:id，andorid:layout_width这样的组件-->
+
+<!--Toolbar是Material Design中的一个重要组件，而Material Design是在Android5以后才有的，所以需要指定app的命令空间，就可以写app:xxx
+这样的语句"-->
+
+<!--tools:context=".MainActivity"
+tools:context这个属性的作用，解释起来比较麻烦，在这里你可以把这个去掉也没关系
+或者是你可以查看这个链接
+https://blog.csdn.net/xiabing082/article/details/50563559
+-->
+<RelativeLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    tools:context=".MainActivity">
+    <!--注释-->
+    <!--Toolbar控件过去由V7库提供，但是现在都是由Androidx提供-->
+    <!--ayout_height="?attr/actionBarSize将其设定为actionBar的高度-->
+    <!--background="?attr/colorPrimary"将Toolbar的背景色设置为colorPrimary的颜色，此时，状态栏和Toolbar的颜色相同-->
+    <!--android:theme指定了Toolbar的主题，目的是和style.xml中AppTheme的主题区分开-->
+    <!--app:popupTheme讲弹出的菜单栏设置为淡色主题，popupTheme是在Android5.0以后新增的属性，使用app指定就能兼容android5.0以下的系统-->
+    <!--
+        android:background="?attr/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        这些都是为了让Toolbar更好看，如果去掉是怎么样的效果，也可以看看-->
+    <!-- 由于每个控件对应的属性都特别多，所以如果有不太明白的，也可以百度一下-->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:singleLine="true"
+        android:textSize="20sp"
+        android:text="大棚温度" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+    android:layout_below="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:id="@+id/liner_1"
+    android:orientation="horizontal">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:layout_margin="5dp"
+        android:foreground="?android:attr/selectableItemBackgroundBorderless"
+        android:id="@+id/node1_card"
+        app:cardCornerRadius="4dp"
+        android:onClick="mainClicked"
+        tools:ignore="NewApi">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/node1_image"
+                android:layout_width="match_parent"
+                android:layout_height="114sp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/temperature_icon" />
+
+            <TextView
+                android:id="@+id/node1_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="5sp"
+                android:text="节点一"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/node2_card"
+        android:foreground="?android:attr/selectableItemBackgroundBorderless"
+        android:layout_weight="1"
+        android:layout_margin="5dp"
+        android:onClick="mainClicked"
+        app:cardCornerRadius="4dp">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/node2_image"
+                android:layout_width="match_parent"
+                android:layout_height="114dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/temperature_icon"/>
+
+            <TextView
+                android:id="@+id/node2_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="5dp"
+                android:text="节点二"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>
+
+    <LinearLayout
+        android:layout_below="@+id/liner_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:id="@+id/liner_2"
+        android:orientation="horizontal">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_margin="5dp"
+            android:foreground="?android:attr/selectableItemBackgroundBorderless"
+            android:id="@+id/node3_card"
+            android:onClick="mainClicked"
+            app:cardCornerRadius="4dp"
+            tools:ignore="NewApi">
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/node3_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="114sp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/temperature_icon" />
+
+                <TextView
+                    android:id="@+id/node3_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="5sp"
+                    android:text="节点三"
+                    android:textSize="16sp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/node4_card"
+            android:onClick="mainClicked"
+            android:foreground="?android:attr/selectableItemBackgroundBorderless"
+            android:layout_weight="1"
+            android:layout_margin="5dp"
+            app:cardCornerRadius="4dp">
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/node4_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="114dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/temperature_icon"/>
+
+                <TextView
+                    android:id="@+id/node4_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="5dp"
+                    android:text="节点四"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+    <LinearLayout
+    android:layout_below="@+id/liner_2"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:id="@+id/liner_3"
+    android:orientation="horizontal">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:layout_margin="5dp"
+        android:foreground="?android:attr/selectableItemBackgroundBorderless"
+        android:id="@+id/node5_card"
+        app:cardCornerRadius="4dp"
+        android:onClick="mainClicked"
+        tools:ignore="NewApi">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/node5_image"
+                android:layout_width="match_parent"
+                android:layout_height="114sp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/temperature_icon" />
+
+            <TextView
+                android:id="@+id/node5_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="5sp"
+                android:text="节点五"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/node6_card"
+        android:onClick="mainClicked"
+        android:foreground="?android:attr/selectableItemBackgroundBorderless"
+        android:layout_weight="1"
+        android:layout_margin="5dp"
+        app:cardCornerRadius="4dp">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/node6_image"
+                android:layout_width="match_parent"
+                android:layout_height="114dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/temperature_icon"/>
+
+            <TextView
+                android:id="@+id/node6_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="5dp"
+                android:text="节点六"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>
+
+    <LinearLayout
+        android:layout_below="@+id/liner_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:id="@+id/liner_4"
+        android:orientation="horizontal">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_margin="5dp"
+            android:foreground="?android:attr/selectableItemBackgroundBorderless"
+            android:id="@+id/node7_card"
+            app:cardCornerRadius="4dp"
+            android:onClick="mainClicked"
+            tools:ignore="NewApi">
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/node7_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="114sp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/temperature_icon" />
+
+                <TextView
+                    android:id="@+id/node7_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="5sp"
+                    android:text="节点七"
+                    android:textSize="16sp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/node8_card"
+            android:layout_weight="1"
+            android:layout_margin="5dp"
+            android:onClick="mainClicked"
+            android:foreground="?android:attr/selectableItemBackgroundBorderless"
+            app:cardCornerRadius="4dp">
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/node8_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="114dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/temperature_icon"/>
+
+                <TextView
+                    android:id="@+id/node8_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="5dp"
+                    android:text="节点八"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

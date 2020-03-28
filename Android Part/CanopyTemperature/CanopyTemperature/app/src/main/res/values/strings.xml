@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">智慧大棚</string>
+    <string name="title_activity_temperature">TemperatureActivity</string>
+</resources>

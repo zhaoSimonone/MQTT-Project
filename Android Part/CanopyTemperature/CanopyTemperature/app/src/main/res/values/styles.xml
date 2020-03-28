@@ -1,0 +1,59 @@
+<resources>
+    <!-- Base application theme. -->
+    <!--parent="Theme.AppCompat.Light.NoActionBar"指定了表示设定为淡色主题-->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="login_txt1">
+        <item name="android:textSize">40dp</item>
+        <item name="android:textColor">#66CDAA</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="login_txt2">
+        <item name="android:textColor">#333333</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:layout_marginLeft">40dp</item>
+    </style>
+
+    <style name="login_edit">
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:width">240dp</item>
+    </style>
+
+    <style name="login_button">
+        <item name="android:layout_marginRight">30dp</item>
+        <item name="android:layout_marginLeft">30dp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">16dp</item>
+    </style>
+    <style name="fan_button">
+        <item name="android:layout_marginRight">30dp</item>
+        <item name="android:layout_marginLeft">30dp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">16dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:topLeftRadius">10dip</item>
+        <item name="android:topRightRadius">10dip</item>
+        <item name="android:bottomRightRadius">10dip</item>
+        <item name="android:background">@drawable/button_background</item>
+        <item name="android:textColor">#fff</item>
+        <item name="android:layout_marginTop">10dp</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+</resources>
